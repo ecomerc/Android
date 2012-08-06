@@ -11,7 +11,7 @@
     <string name="txtlogo">Opret eller rediger et login:</string>
     <string name="tvname">Navn:</string>
     <string name="tvurl">ForældreIntra Mobil URL:</string>
-    <string name="butschool">  Skoler</string>
+    <string name="butschool">Skoler&#8230;</string>
     <string name="tvlogin">Brugernavn:</string>
     <string name="tvpassword">Adgangskode:</string>
     <string name="butok">Gem</string>
