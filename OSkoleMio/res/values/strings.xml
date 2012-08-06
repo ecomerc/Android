@@ -21,10 +21,10 @@
     <string name="butmissingschool">Min skole mangler &#8230;</string>
     
     <string name="msgtitle">Læs venligst dette!</string>
-    <string name="msgbody">Velkommen til O Skole Mio.\r\n\r\nDer er en OK knap i bunden af denne dialog - det kan være, at du skal scrolle ned for at se den.\r\n\r\nHar du spørgsmål til brugen af app\'en eller støder du på en fejl så brug venligst email linket i \"Om\" menu-punktet.\r\n\r\nTak.\r\n/brian\r\n\r\n</string>
+    <string name="msgbody">Velkommen til O Skole Mio.\r\n\r\nDer er en OK knap i bunden af denne dialog - det kan være, at du skal scrolle ned for at se den.\r\n\r\nHar du spørgsmål til brugen af app\'en eller støder du på en fejl så brug venligst email linket i \"Info\" menu-punktet.\r\n\r\nTak.\r\n/brian\r\n\r\n</string>
     <string name="ok">OK</string>
     
-    <string name="email_to">brian@schau.dk</string>
+    <string name="email_to">brian@oskolemio.dk</string>
     <string name="email_subject">[OSkoleMio] Mangler skole</string>
 	<string name="email_body">Hej Brian, jeg mangler denne skole i O Skole Mio: </string>
 	
