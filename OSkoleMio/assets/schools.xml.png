@@ -51,6 +51,10 @@
 		<url>https://www.bagkost.skoleintra.dk/Mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Bagsværd Skole</name>
+		<url>https://www.bagsvaerdskole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Bagterpskolen</name>
 		<url>https://www.bagterpskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -207,6 +211,14 @@
 		<url>https://si.egebjergskolen.horsens.dk/mobil/mobil_fi/Loginside.asp</url>
 	</school>
 	<school>
+		<name>Egekratskolen</name>
+		<url>https://www.egekratskolen.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Egeskovskolen</name>
+		<url>https://www.egeskovskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Egtved Skole</name>
 		<url>https://www.egtvedskole.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -285,6 +297,10 @@
 	<school>
 		<name>Fourfeldtskolen</name>
 		<url>https://www.fourfeldtskolen.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Frederiks Skole, SFO og Klub</name>
+		<url>https://www.frederiks-skole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Frydenhøjskolen</name>
@@ -425,6 +441,10 @@
 	<school>
 		<name>Herningsholmskolen</name>
 		<url>https://www.herningsholmskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Herskindskolen</name>
+		<url>https://www.herskindskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Herstedøster Skole</name>
