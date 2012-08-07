@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.text.Collator;
 import java.util.ArrayList;
@@ -20,19 +22,36 @@ import org.w3c.dom.NodeList;
 import dk.schau.OSkoleMio.vos.School;
 
 import android.app.Activity;
-import android.content.res.AssetFileDescriptor;
+import android.os.Environment;
 
 public class SchoolsCollection
 {
+	private static final String _ASSETSSCHOOLSFILE = "schools.xml.png";
+	private static final String _FOLDER = "/OSkoleMio";	private static final String _SCHOOLSFILE = _FOLDER + "/schools.xml";
 	public static ArrayList<School> schools = new ArrayList<School>();
 	private static ArrayList<String> _allNames = new ArrayList<String>();
 
 	public static boolean init(Activity parent)
 	{
-		long internalSchoolFileSize = getInternalSchoolFileSize(parent);
-		long externalSchoolFileSize = getExternalSchoolFileSize();
-
-		String xml = (externalSchoolFileSize > internalSchoolFileSize) ? getRemoteXml() : getLocalXml(parent);
+		try
+		{
+			copyBundledSchoolsFile(parent);
+		}
+		catch (Exception ex)
+		{
+			return false;
+		}
+		
+		String xml;
+		try
+		{
+			xml = getXml();
+		}
+		catch (Exception ex)
+		{
+			return false;
+		}
+		
 		Document doc = XMLFunctions.xmlFromString(xml);
 		if (doc == null)
 		{
@@ -59,79 +78,80 @@ public class SchoolsCollection
 		_allNames.clear();
 		schools.clear();
 	}
-
-	private static long getInternalSchoolFileSize(Activity parent)
+	
+	private static void copyBundledSchoolsFile(Activity parent) throws IOException
 	{
-		AssetFileDescriptor assetFileDescriptor = null;
-		long size = 0;
-
-		try
-		{
-			assetFileDescriptor = parent.getResources().getAssets().openFd(FilePaths.getInternalSchoolsFile());
-			size = assetFileDescriptor.getLength();
-		}
-		catch (IOException ioException)
-		{
-		}
-		finally
-		{
-			if (assetFileDescriptor != null)
-			{
-				try
-				{
-					assetFileDescriptor.close();
-				}
-				catch (Exception exception)
-				{
-				}
-			}
-		}
-
-		return size;
-	}
-
-	private static long getExternalSchoolFileSize()
-	{
-		File file = new File(FilePaths.getExternalSchoolsFile());
+		File file = new File(Environment.getExternalStorageDirectory() + _SCHOOLSFILE);
 
 		if (file.exists())
 		{
-			return file.length();
+			return;
+		}
+		
+		createOSkoleMioFolder();
+		copyFile(parent);
+	}
+	
+	private static void createOSkoleMioFolder()
+	{
+		String folder = Environment.getExternalStorageDirectory() + _FOLDER;
+		File directory = new File(folder);
+		
+		if (directory.exists())
+		{
+			return;
+		}
+		directory.mkdirs();
+	}
+	
+	private static void copyFile(Activity parent) throws IOException
+	{
+		InputStream input = parent.getAssets().open(_ASSETSSCHOOLSFILE);
+		OutputStream output = new FileOutputStream(Environment.getExternalStorageDirectory() + _SCHOOLSFILE);
+
+		byte[] buffer = new byte[2048];
+		int length;
+		while ((length = input.read(buffer)) > 0)
+		{
+			output.write(buffer, 0, length);
 		}
 
-		return 0;
+		output.flush();
+		output.close();
+		input.close();
 	}
 
-	private static String getRemoteXml()
+	private static String getXml() throws IOException
 	{
+		FileInputStream fileInputStream = null;
+		
 		try
 		{
-			FileInputStream fileInputStream = new FileInputStream(FilePaths.getExternalSchoolsFile());
+			fileInputStream = new FileInputStream(Environment.getExternalStorageDirectory() + _SCHOOLSFILE);
 
 			return XMLFunctions.readXmlFile(fileInputStream);
 		}
-		catch (Exception exception)
+		finally
 		{
+			if (fileInputStream != null)
+			{
+				fileInputStream.close();
+			}
 		}
-
-		return "";
 	}
 
-	public static void setRemoteXml(String xml)
+	public static void setRemoteXml(String xml) throws IOException
 	{
 		PrintWriter printWriter = null;
 
 		try
 		{
-			FilePaths.createDownloadFolder();
-			FileOutputStream fileOutputStream = new FileOutputStream(new File(FilePaths.getExternalSchoolsFile()));
+			createOSkoleMioFolder();
+			FileOutputStream fileOutputStream = new FileOutputStream(new File(Environment.getExternalStorageDirectory() + _SCHOOLSFILE));
 			BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
 			printWriter = new PrintWriter(bufferedOutputStream);
 
 			printWriter.write(xml);
-		}
-		catch (Exception exception)
-		{
 		}
 		finally
 		{
@@ -148,21 +168,6 @@ public class SchoolsCollection
 		}
 	}
 
-	private static String getLocalXml(Activity parent)
-	{
-		try
-		{
-			AssetFileDescriptor assetFileDescriptor = parent.getResources().getAssets().openFd(FilePaths.getInternalSchoolsFile());
-
-			return XMLFunctions.readXmlFile(assetFileDescriptor.createInputStream());
-		}
-		catch (Exception exception)
-		{
-		}
-
-		return "";
-	}
-	
 	private static void sortSchoolsList()
 	{
 		final Collator dkCollator = Collator.getInstance(new Locale("da", "DK"));

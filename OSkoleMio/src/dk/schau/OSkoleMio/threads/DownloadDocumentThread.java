@@ -10,15 +10,16 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import android.os.Environment;
 import android.os.Message;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
-import dk.schau.OSkoleMio.FilePaths;
 import dk.schau.OSkoleMio.handlers.DownloadDocumentHandler;
 import dk.schau.OSkoleMio.vos.DownloadDocumentPackage;
 
 public class DownloadDocumentThread extends Thread
 {
+	private final String _DOWNLOADFOLDER = "/OSkoleMio/downloads/";
 	private DownloadDocumentHandler _downloadDocumentHandler;
 	private CookieManager _cookieManager;
 	private String _url;
@@ -74,9 +75,8 @@ public class DownloadDocumentThread extends Thread
 
 			if (entity.getContentLength() > 0)
 			{
-				FilePaths.createDownloadFolder();
-
-				String fullPath = FilePaths.getDownloadFolder() + file;
+				createDownloadFolder();
+				String fullPath = getFolderPath() + file;
 
 				File outputFile = new File(fullPath);
 				fileOutputStream = new FileOutputStream(outputFile);
@@ -121,5 +121,23 @@ public class DownloadDocumentThread extends Thread
 		}
 
 		return null;
+	}
+	
+	private String getFolderPath()
+	{
+		return Environment.getExternalStorageDirectory() + _DOWNLOADFOLDER;
+	}
+	
+	private void createDownloadFolder()
+	{
+		String folder = getFolderPath();
+		File directory = new File(folder);
+		
+		if (directory.exists())
+		{
+			return;
+		}
+		
+		directory.mkdirs();
 	}
 }

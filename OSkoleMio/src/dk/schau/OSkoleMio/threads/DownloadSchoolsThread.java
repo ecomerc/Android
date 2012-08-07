@@ -7,11 +7,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
 import android.os.Message;
-import dk.schau.OSkoleMio.FilePaths;
 import dk.schau.OSkoleMio.handlers.DownloadSchoolsHandler;
 
 public class DownloadSchoolsThread extends Thread
 {
+	private final String _UPDATEFILE = "http://www.oskolemio.dk/schools.xml";
 	private DownloadSchoolsHandler _downloadSchoolsHandler;
 	
 	public DownloadSchoolsThread(DownloadSchoolsHandler downloadSchoolsHandler)
@@ -33,7 +33,7 @@ public class DownloadSchoolsThread extends Thread
 		try
 		{
 			DefaultHttpClient httpClient = new DefaultHttpClient();
-			HttpGet request = new HttpGet(FilePaths.getWebSchoolsFile());
+			HttpGet request = new HttpGet(_UPDATEFILE);
 
 			HttpResponse response = httpClient.execute(request);
 			HttpEntity entity = response.getEntity();
