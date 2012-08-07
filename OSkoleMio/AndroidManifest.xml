@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="dk.schau.OSkoleMio"
       android:installLocation="preferExternal"
-      android:versionCode="40"
-      android:versionName="4.0">
+      android:versionCode="41"
+      android:versionName="4.1">
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="14" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />   
