@@ -547,6 +547,10 @@
 		<url>https://www.hoejvangskolenaarhus.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Høng Skole</name>
+		<url>https://www.hoeng-komskole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Hørsholm Skole</name>
 		<url>https://si.hoersholmskole.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -651,6 +655,10 @@
 		<url>https://www.langebjergskolen.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Langelinieskolen og SPK</name>
+		<url>https://www.langelinieskolen.kk.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Langskov Skole</name>
 		<url>https://www.langskov-skole.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -687,6 +695,10 @@
 		<url>https://www.lundgaardskolen.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Lundskolen</name>
+		<url>https://www.lundskolen.horsens.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Lundtofte Skole</name>
 		<url>https://www.lu-ltk.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -721,6 +733,10 @@
 	<school>
 		<name>Løsning Skole</name>
 		<url>https://www.loesning-skole.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Løve-Ørslev Skole</name>
+		<url>https://www.loeve-oerslev.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Malling Skole</name>
@@ -1039,6 +1055,10 @@
 		<url>https://www.stengaard.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Stengårdsskolen</name>
+		<url>https://www.stengaardsskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Stenlille Skole</name>
 		<url>https://www.stenlille-skole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -1065,6 +1085,10 @@
 	<school>
 		<name>Storåskolen - kommunal specialskole</name>
 		<url>https://www.storaaskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Strib Skole</name>
+		<url>https://www.stribskole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Strøbyskolen</name>
@@ -1241,6 +1265,10 @@
 	<school>
 		<name>Vemmelev Skole</name>
 		<url>https://www.skole.korsoer.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Vester Skerninge Friskole</name>
+		<url>https://www.vskfri.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Vesterbro Ny Skole</name>
