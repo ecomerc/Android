@@ -22,10 +22,13 @@ import org.w3c.dom.NodeList;
 import dk.schau.OSkoleMio.vos.School;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Environment;
 
 public class SchoolsCollection
 {
+	private static final String _SCHOOLSPREFSNAME = "SchoolsPrefs";
+	private static final String _SAVEDVERSION = "SavedVersion";
 	private static final String _ASSETSSCHOOLSFILE = "schools.xml.png";
 	private static final String _FOLDER = "/OSkoleMio";	private static final String _SCHOOLSFILE = _FOLDER + "/schools.xml";
 	public static ArrayList<School> schools = new ArrayList<School>();
@@ -81,15 +84,46 @@ public class SchoolsCollection
 	
 	private static void copyBundledSchoolsFile(Activity parent) throws IOException
 	{
-		File file = new File(Environment.getExternalStorageDirectory() + _SCHOOLSFILE);
-
-		if (file.exists())
+		if (shouldCopy(parent) == false)
 		{
 			return;
 		}
 		
 		createOSkoleMioFolder();
 		copyFile(parent);
+		
+		SharedPreferences settings = parent.getSharedPreferences(_SCHOOLSPREFSNAME, 0);
+		SharedPreferences.Editor editor = settings.edit();
+		editor.putString(_SAVEDVERSION, getCurrentVersion(parent));
+		editor.commit();
+	}
+	
+	private static boolean shouldCopy(Activity parent)
+	{
+		String currentVersion = getCurrentVersion(parent);
+		
+		SharedPreferences settings = parent.getSharedPreferences(_SCHOOLSPREFSNAME, 0);
+		String saveVersion = settings.getString(_SAVEDVERSION, null);
+		
+		if (saveVersion.compareTo(currentVersion) == 0)
+		{
+			return false;
+		}
+		
+		return true;
+	}
+	
+	private static String getCurrentVersion(Activity parent)
+	{
+		try
+		{
+			return parent.getPackageManager().getPackageInfo(parent.getPackageName(), 0).versionName;
+		}
+		catch (Exception exception)
+		{
+		}
+
+		return "?";
 	}
 	
 	private static void createOSkoleMioFolder()
