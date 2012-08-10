@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-<item android:id="@+id/menu_info"
-    android:icon="@drawable/ic_action_info"
-    android:title="@string/menu_info"
-    android:showAsAction="ifRoom" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:id="@+id/menu_done"
     android:icon="@drawable/ic_action_done"
     android:title="@string/menu_done"
     android:showAsAction="always" />
+<item android:id="@+id/menu_menu"
+    android:icon="@drawable/ic_action_overflow"
+    android:title="Menu"
+    android:showAsAction="always">
+    <menu>
+        <item android:id="@+id/menu_back"
+            android:title="Tilbage" />
+        <item android:id="@+id/menu_info"
+            android:title="Om O Skole Mio" />
+    </menu>
+</item>
 </menu>
