@@ -7,6 +7,7 @@
     <string name="menu_new">Tilføj</string>
     <string name="menu_email">Min skole mangler</string>
     <string name="menu_update">Opdater</string>
+    <string name="menu_back">Tilbage</string>
     
     <string name="txtlogo">Opret eller rediger et login:</string>
     <string name="tvname">Navn:</string>

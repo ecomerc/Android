@@ -9,6 +9,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -38,7 +39,8 @@ import dk.schau.OSkoleMio.R;
 import dk.schau.OSkoleMio.handlers.DownloadDocumentHandler;
 import dk.schau.OSkoleMio.threads.DownloadDocumentThread;
 import dk.schau.OSkoleMio.vos.Login;
-
+import android.webkit.SslErrorHandler;
+import android.net.http.SslError;
 public class WebControllerActivity extends SherlockFragmentActivity
 {
 	private ProgressDialog _progressDialog = null;
@@ -75,8 +77,6 @@ public class WebControllerActivity extends SherlockFragmentActivity
 		
 		setContentView(R.layout.webview);
 
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		
 		verify(_login.getId(), _login.getUrl(), "ForældreIntra Mobil URL");
 		verify(_login.getId(), _login.getLogin(), "Brugernavn");
 		verify(_login.getId(), _login.getPassword(), "Adgangskode");
@@ -121,7 +121,7 @@ public class WebControllerActivity extends SherlockFragmentActivity
 		alert.show();
 	}
 
-	private void initUI()
+	@SuppressLint("SetJavaScriptEnabled") private void initUI()
 	{
 		_webViewPlaceHolder = (FrameLayout) findViewById(R.id.webviewplaceholder);
 		if (_webView == null)
@@ -145,12 +145,10 @@ public class WebControllerActivity extends SherlockFragmentActivity
 
 				// Using the very good trick from:
 				// http://damianflannery.wordpress.com/2010/09/28/android-webview-with-https-loadurl-shows-blankempty-page/
-				/*
 				public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error)
 				{
 					handler.proceed();
 				}
-				*/
 			});
 
 			_webView.setDownloadListener(new DownloadListener()
@@ -273,10 +271,9 @@ public class WebControllerActivity extends SherlockFragmentActivity
 	{
 		switch (item.getItemId())
 		{
-			case android.R.id.home:
+			case R.id.menu_selectschool:
 				Intent intent = new Intent(this, OSkoleMioActivity.class);
-				intent.putExtra("noauto", "true");
-				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				intent.putExtra("noauto", "1");
 				startActivity(intent);
 				return true;
 				

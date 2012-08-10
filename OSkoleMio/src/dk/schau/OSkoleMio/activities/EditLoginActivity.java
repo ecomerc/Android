@@ -25,8 +25,6 @@ public class EditLoginActivity extends SherlockFragmentActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.editlogin);
 		
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null)
 		{
@@ -68,8 +66,10 @@ public class EditLoginActivity extends SherlockFragmentActivity
 	{
 		switch (item.getItemId())
 		{
-			case android.R.id.home:
-				finish();
+			case R.id.menu_back:
+				Intent intent = new Intent(this, OSkoleMioActivity.class);
+				intent.putExtra("noauto", true);
+				startActivity(intent);
 				return true;
 
 			case R.id.menu_info:

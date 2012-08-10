@@ -5,6 +5,8 @@ import java.io.InputStream;
 import org.apache.http.util.EncodingUtils;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
 import dk.schau.OSkoleMio.R;
@@ -24,8 +26,6 @@ public class AboutActivity extends SherlockFragmentActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.about);
 
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		
 		WebView webView = (WebView) findViewById(R.id.aboutview);
 
 		WebSettings webSettings = webView.getSettings();
@@ -91,13 +91,22 @@ public class AboutActivity extends SherlockFragmentActivity
 
 		return "?";
 	}
+
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu)
+	{
+		super.onCreateOptionsMenu(menu);
+		MenuInflater inflater = getSupportMenuInflater();
+		inflater.inflate(R.menu.about_actionbar_menu, menu);
+		return true;
+    }
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
 		switch (item.getItemId())
 		{
-			case android.R.id.home:
+			case R.id.menu_back:
 				finish();
 				return true;
 		}

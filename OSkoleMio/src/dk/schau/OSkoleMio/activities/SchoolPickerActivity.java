@@ -35,8 +35,6 @@ public class SchoolPickerActivity extends SherlockListActivity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.schoolpicker);
 		
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 		_schoolPickerActivity = this;
 
 		Bundle bundle = getIntent().getExtras();
@@ -107,7 +105,7 @@ public class SchoolPickerActivity extends SherlockListActivity
 	{
 		switch (item.getItemId())
 		{
-			case android.R.id.home:
+			case R.id.menu_back:
 				goToEditLogin(null);
 				return true;
 				
@@ -121,6 +119,10 @@ public class SchoolPickerActivity extends SherlockListActivity
 				
 			case R.id.menu_email:
 				sendEmail();
+				return true;
+				
+			case R.id.menu_info:
+				startActivity(new Intent(this, AboutActivity.class));
 				return true;
 		}
 
