@@ -111,6 +111,10 @@
 		<url>https://www.bramsnaesvigskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Bredsten-Gadbjerg skole</name>
+		<url>https://www.bredsten-gadbjergskole.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Brobyskolerne</name>
 		<url>https://www.brobyskolerne.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -365,6 +369,10 @@
 	<school>
 		<name>Grønvangskolen</name>
 		<url>https://www.gronvangskolen.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Gyvelhøjskolen</name>
+		<url>https://www.gyvelhoejskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Gødvadskolen</name>
@@ -777,6 +785,10 @@
 	<school>
 		<name>Munkebjergskolen</name>
 		<url>https://www.munkebjergskolen.odense.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Møllevangsskolen</name>
+		<url>https://www.moellevangsskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Målev Skole</name>
