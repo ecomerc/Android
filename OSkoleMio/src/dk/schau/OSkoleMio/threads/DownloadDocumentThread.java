@@ -15,7 +15,7 @@ import android.os.Message;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import dk.schau.OSkoleMio.handlers.DownloadDocumentHandler;
-import dk.schau.OSkoleMio.vos.DownloadDocumentPackage;
+import dk.schau.OSkoleMio.vos.Document;
 
 public class DownloadDocumentThread extends Thread
 {
@@ -38,7 +38,7 @@ public class DownloadDocumentThread extends Thread
 	{
 		Message message = new Message();
 		String fullPath = download(_url);
-		message.obj = new DownloadDocumentPackage(fullPath, _mimeType);
+		message.obj = new Document(fullPath, _mimeType);
 		
 		_downloadDocumentHandler.sendMessage(message);
 	}

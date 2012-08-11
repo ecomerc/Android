@@ -1,11 +1,11 @@
 package dk.schau.OSkoleMio.vos;
 
-public class DownloadDocumentPackage
+public class Document
 {
 	public String fullPath = "";
 	public String mimeType = "";
 	
-	public DownloadDocumentPackage(String fullPath, String mimeType)
+	public Document(String fullPath, String mimeType)
 	{
 		this.fullPath = fullPath;
 		this.mimeType = mimeType;

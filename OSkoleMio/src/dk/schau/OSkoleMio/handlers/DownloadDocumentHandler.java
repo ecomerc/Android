@@ -3,7 +3,7 @@ package dk.schau.OSkoleMio.handlers;
 import android.os.Handler;
 import android.os.Message;
 import dk.schau.OSkoleMio.activities.WebControllerActivity;
-import dk.schau.OSkoleMio.vos.DownloadDocumentPackage;
+import dk.schau.OSkoleMio.vos.Document;
 
 public class DownloadDocumentHandler extends Handler
 {
@@ -17,7 +17,7 @@ public class DownloadDocumentHandler extends Handler
 	@Override
 	public void handleMessage(Message message)
 	{
-		DownloadDocumentPackage downloadDocumentPackage = (DownloadDocumentPackage) message.obj;
+		Document downloadDocumentPackage = (Document) message.obj;
 		
 		_parent.onDownloadFinished(downloadDocumentPackage.fullPath, downloadDocumentPackage.mimeType);
 	}
