@@ -149,7 +149,7 @@ public class SchoolPickerActivity extends SherlockListActivity
 				throw new Exception("Error");
 			}
 
-			SchoolsCollection.setRemoteXml(xml);
+			SchoolsCollection.setRemoteXml(xml, this);
 			if (SchoolsCollection.init(_schoolPickerActivity))
 			{
 				resetSchoolPicker();

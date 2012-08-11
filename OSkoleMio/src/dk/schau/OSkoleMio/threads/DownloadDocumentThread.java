@@ -10,7 +10,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import android.os.Environment;
 import android.os.Message;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
@@ -19,7 +18,6 @@ import dk.schau.OSkoleMio.vos.Document;
 
 public class DownloadDocumentThread extends Thread
 {
-	private final String _DOWNLOADFOLDER = "/OSkoleMio/downloads/";
 	private DownloadDocumentHandler _downloadDocumentHandler;
 	private CookieManager _cookieManager;
 	private String _url;
@@ -75,10 +73,9 @@ public class DownloadDocumentThread extends Thread
 
 			if (entity.getContentLength() > 0)
 			{
-				createDownloadFolder();
-				String fullPath = getFolderPath() + file;
+//				createDownloadFolder();
 
-				File outputFile = new File(fullPath);
+				File outputFile = getFilePath(file);
 				fileOutputStream = new FileOutputStream(outputFile);
 
 				byte[] buffer = new byte[8192];
@@ -89,7 +86,7 @@ public class DownloadDocumentThread extends Thread
 					fileOutputStream.write(buffer, 0, length);
 				}
 
-				return fullPath;
+				return outputFile.getAbsolutePath();
 			}
 		}
 		catch (Exception ex)
@@ -123,21 +120,8 @@ public class DownloadDocumentThread extends Thread
 		return null;
 	}
 	
-	private String getFolderPath()
+	private File getFilePath(String file)
 	{
-		return Environment.getExternalStorageDirectory() + _DOWNLOADFOLDER;
-	}
-	
-	private void createDownloadFolder()
-	{
-		String folder = getFolderPath();
-		File directory = new File(folder);
-		
-		if (directory.exists())
-		{
-			return;
-		}
-		
-		directory.mkdirs();
+		return new File(_downloadDocumentHandler.getParentActivity().getExternalFilesDir(null), file);
 	}
 }

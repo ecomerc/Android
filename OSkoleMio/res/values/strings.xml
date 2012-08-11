@@ -15,6 +15,7 @@
     <string name="butschool">Skoler&#8230;</string>
     <string name="tvlogin">Brugernavn:</string>
     <string name="tvpassword">Adgangskode:</string>
+
     <string name="butok">Gem</string>
     <string name="butcancel">Afbryd</string>
     <string name="butupdate">Opdater</string>
@@ -30,4 +31,7 @@
 	<string name="email_body">Hej Brian, jeg mangler denne skole i O Skole Mio: </string>
 	
 	<string name="listitemcontentdescription">image</string>
+	
+	<string name="assetsschoolfile">schools.xml.png</string>
+	<string name="schoolsfile">schools.xml</string>
 </resources>

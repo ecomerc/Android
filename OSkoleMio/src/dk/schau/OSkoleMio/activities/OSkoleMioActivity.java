@@ -1,5 +1,10 @@
 package dk.schau.OSkoleMio.activities;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.Collator;
 import java.util.Collections;
 import java.util.Comparator;
@@ -34,6 +39,8 @@ import android.widget.ListView;
 
 public class OSkoleMioActivity extends SherlockListActivity
 {
+	private static final String _SCHOOLSPREFSNAME = "SchoolsPrefs";
+	private static final String _SAVEDVERSION = "SavedVersion";
 	private static int _CURRENT_MESSAGES_LEVEL = 4;
 	private boolean _autoLaunch = true;
 	private List<Login> _logins;
@@ -43,7 +50,15 @@ public class OSkoleMioActivity extends SherlockListActivity
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-
+		
+		try
+		{
+			copyBundledSchoolsFile();
+		}
+		catch (Exception ex)
+		{
+		}
+		
 		SchoolsCollection.init(this);
 		DB database = new DB(this);
 		_logins = database.selectAll(database.getReadableDatabase());
@@ -86,6 +101,74 @@ public class OSkoleMioActivity extends SherlockListActivity
 		{
 			handleAutoStart();
 		}
+	}
+	
+	private void copyBundledSchoolsFile() throws IOException
+	{
+		if (shouldCopy() == false)
+		{
+			return;
+		}
+		
+//		createOSkoleMioFolder();
+		copyFile();
+		
+		SharedPreferences settings = getSharedPreferences(_SCHOOLSPREFSNAME, 0);
+		SharedPreferences.Editor editor = settings.edit();
+		editor.putString(_SAVEDVERSION, getCurrentVersion());
+		editor.commit();
+	}
+	
+	private boolean shouldCopy()
+	{
+		File file = new File(getExternalFilesDir(null), getString(R.string.schoolsfile));
+		if (!file.exists())
+		{
+			return true;
+		}
+		
+		String currentVersion = getCurrentVersion();
+		
+		SharedPreferences settings = getSharedPreferences(_SCHOOLSPREFSNAME, 0);
+		String saveVersion = settings.getString(_SAVEDVERSION, null);
+		
+		if (saveVersion.compareTo(currentVersion) == 0)
+		{
+			return false;
+		}
+		
+		return true;
+	}
+	
+	private String getCurrentVersion()
+	{
+		try
+		{
+			return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+		}
+		catch (Exception exception)
+		{
+		}
+
+		return "?";
+	}
+	
+	private void copyFile() throws IOException
+	{
+		InputStream input = getAssets().open(getString(R.string.assetsschoolfile));
+		File file = new File(getExternalFilesDir(null), getString(R.string.schoolsfile));
+		OutputStream output = new FileOutputStream(file);
+
+		byte[] buffer = new byte[2048];
+		int length;
+		while ((length = input.read(buffer)) > 0)
+		{
+			output.write(buffer, 0, length);
+		}
+
+		output.flush();
+		output.close();
+		input.close();
 	}
 
 	private void handleAutoStart()

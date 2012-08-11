@@ -5,8 +5,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.text.Collator;
 import java.util.ArrayList;
@@ -22,33 +20,18 @@ import org.w3c.dom.NodeList;
 import dk.schau.OSkoleMio.vos.School;
 
 import android.app.Activity;
-import android.content.SharedPreferences;
-import android.os.Environment;
 
 public class SchoolsCollection
 {
-	private static final String _SCHOOLSPREFSNAME = "SchoolsPrefs";
-	private static final String _SAVEDVERSION = "SavedVersion";
-	private static final String _ASSETSSCHOOLSFILE = "schools.xml.png";
-	private static final String _FOLDER = "/OSkoleMio";	private static final String _SCHOOLSFILE = _FOLDER + "/schools.xml";
 	public static ArrayList<School> schools = new ArrayList<School>();
 	private static ArrayList<String> _allNames = new ArrayList<String>();
 
-	public static boolean init(Activity parent)
+	public static boolean init(Activity activity)
 	{
-		try
-		{
-			copyBundledSchoolsFile(parent);
-		}
-		catch (Exception ex)
-		{
-			return false;
-		}
-		
 		String xml;
 		try
 		{
-			xml = getXml();
+			xml = getXml(activity);
 		}
 		catch (Exception ex)
 		{
@@ -82,86 +65,14 @@ public class SchoolsCollection
 		schools.clear();
 	}
 	
-	private static void copyBundledSchoolsFile(Activity parent) throws IOException
+	private static String getXml(Activity activity) throws IOException
 	{
-		if (shouldCopy(parent) == false)
-		{
-			return;
-		}
-		
-		createOSkoleMioFolder();
-		copyFile(parent);
-		
-		SharedPreferences settings = parent.getSharedPreferences(_SCHOOLSPREFSNAME, 0);
-		SharedPreferences.Editor editor = settings.edit();
-		editor.putString(_SAVEDVERSION, getCurrentVersion(parent));
-		editor.commit();
-	}
-	
-	private static boolean shouldCopy(Activity parent)
-	{
-		String currentVersion = getCurrentVersion(parent);
-		
-		SharedPreferences settings = parent.getSharedPreferences(_SCHOOLSPREFSNAME, 0);
-		String saveVersion = settings.getString(_SAVEDVERSION, null);
-		
-		if (saveVersion.compareTo(currentVersion) == 0)
-		{
-			return false;
-		}
-		
-		return true;
-	}
-	
-	private static String getCurrentVersion(Activity parent)
-	{
-		try
-		{
-			return parent.getPackageManager().getPackageInfo(parent.getPackageName(), 0).versionName;
-		}
-		catch (Exception exception)
-		{
-		}
-
-		return "?";
-	}
-	
-	private static void createOSkoleMioFolder()
-	{
-		String folder = Environment.getExternalStorageDirectory() + _FOLDER;
-		File directory = new File(folder);
-		
-		if (directory.exists())
-		{
-			return;
-		}
-		directory.mkdirs();
-	}
-	
-	private static void copyFile(Activity parent) throws IOException
-	{
-		InputStream input = parent.getAssets().open(_ASSETSSCHOOLSFILE);
-		OutputStream output = new FileOutputStream(Environment.getExternalStorageDirectory() + _SCHOOLSFILE);
-
-		byte[] buffer = new byte[2048];
-		int length;
-		while ((length = input.read(buffer)) > 0)
-		{
-			output.write(buffer, 0, length);
-		}
-
-		output.flush();
-		output.close();
-		input.close();
-	}
-
-	private static String getXml() throws IOException
-	{
+		File file = new File(activity.getExternalFilesDir(null), activity.getString(R.string.schoolsfile));
 		FileInputStream fileInputStream = null;
 		
 		try
 		{
-			fileInputStream = new FileInputStream(Environment.getExternalStorageDirectory() + _SCHOOLSFILE);
+			fileInputStream = new FileInputStream(file);
 
 			return XMLFunctions.readXmlFile(fileInputStream);
 		}
@@ -174,14 +85,14 @@ public class SchoolsCollection
 		}
 	}
 
-	public static void setRemoteXml(String xml) throws IOException
+	public static void setRemoteXml(String xml, Activity activity) throws IOException
 	{
 		PrintWriter printWriter = null;
 
 		try
 		{
-			createOSkoleMioFolder();
-			FileOutputStream fileOutputStream = new FileOutputStream(new File(Environment.getExternalStorageDirectory() + _SCHOOLSFILE));
+			File file = new File(activity.getExternalFilesDir(null), activity.getString(R.string.schoolsfile));
+			FileOutputStream fileOutputStream = new FileOutputStream(file);
 			BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
 			printWriter = new PrintWriter(bufferedOutputStream);
 

@@ -1,5 +1,6 @@
 package dk.schau.OSkoleMio.handlers;
 
+import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
 import dk.schau.OSkoleMio.activities.WebControllerActivity;
@@ -12,6 +13,11 @@ public class DownloadDocumentHandler extends Handler
 	public DownloadDocumentHandler(WebControllerActivity parent)
 	{
 		_parent = parent;
+	}
+	
+	public Activity getParentActivity()
+	{
+		return _parent;
 	}
 
 	@Override
