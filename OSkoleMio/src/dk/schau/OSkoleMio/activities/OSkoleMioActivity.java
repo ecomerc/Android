@@ -105,12 +105,14 @@ public class OSkoleMioActivity extends SherlockListActivity
 	
 	private void copyBundledSchoolsFile() throws IOException
 	{
+		File path = SchoolsCollection.getExternalFilesDir(this);
+		path.mkdirs();
+		
 		if (shouldCopy() == false)
 		{
 			return;
 		}
 		
-//		createOSkoleMioFolder();
 		copyFile();
 		
 		SharedPreferences settings = getSharedPreferences(_SCHOOLSPREFSNAME, 0);
@@ -121,7 +123,7 @@ public class OSkoleMioActivity extends SherlockListActivity
 	
 	private boolean shouldCopy()
 	{
-		File file = new File(getExternalFilesDir(null), getString(R.string.schoolsfile));
+		File file = SchoolsCollection.getSchoolsFile(this);
 		if (!file.exists())
 		{
 			return true;
@@ -156,7 +158,7 @@ public class OSkoleMioActivity extends SherlockListActivity
 	private void copyFile() throws IOException
 	{
 		InputStream input = getAssets().open(getString(R.string.assetsschoolfile));
-		File file = new File(getExternalFilesDir(null), getString(R.string.schoolsfile));
+		File file = SchoolsCollection.getSchoolsFile(this);
 		OutputStream output = new FileOutputStream(file);
 
 		byte[] buffer = new byte[2048];

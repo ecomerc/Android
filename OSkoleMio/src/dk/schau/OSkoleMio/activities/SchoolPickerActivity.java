@@ -44,6 +44,7 @@ public class SchoolPickerActivity extends SherlockListActivity
 		}
 
 		resetSchoolPicker();
+		Toast.makeText(this, SchoolsCollection.schools.size() + " skoler ...", Toast.LENGTH_SHORT).show();
 	}
 
 	private void resetSchoolPicker()
@@ -153,7 +154,7 @@ public class SchoolPickerActivity extends SherlockListActivity
 			if (SchoolsCollection.init(_schoolPickerActivity))
 			{
 				resetSchoolPicker();
-				Toast.makeText(_schoolPickerActivity, "Seneste Skole liste er hentet og installeret.", Toast.LENGTH_LONG).show();
+				Toast.makeText(_schoolPickerActivity, "Seneste Skole liste er hentet og " + SchoolsCollection.schools.size() + " skoler er installeret.", Toast.LENGTH_LONG).show();
 			}
 			else
 			{

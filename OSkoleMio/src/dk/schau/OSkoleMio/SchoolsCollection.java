@@ -20,6 +20,7 @@ import org.w3c.dom.NodeList;
 import dk.schau.OSkoleMio.vos.School;
 
 import android.app.Activity;
+import android.os.Environment;
 
 public class SchoolsCollection
 {
@@ -65,9 +66,21 @@ public class SchoolsCollection
 		schools.clear();
 	}
 	
+	public static File getExternalFilesDir(Activity activity)
+	{
+		String packageName = activity.getBaseContext().getPackageName();
+		File externalPath = Environment.getExternalStorageDirectory();
+		return new File(externalPath.getAbsolutePath() + "/Android/data/" + packageName + "/files");
+	}
+	
+	public static File getSchoolsFile(Activity activity)
+	{
+		return new File(getExternalFilesDir(activity), activity.getString(R.string.schoolsfile));
+	}
+	
 	private static String getXml(Activity activity) throws IOException
 	{
-		File file = new File(activity.getExternalFilesDir(null), activity.getString(R.string.schoolsfile));
+		File file = getSchoolsFile(activity);
 		FileInputStream fileInputStream = null;
 		
 		try
@@ -91,7 +104,7 @@ public class SchoolsCollection
 
 		try
 		{
-			File file = new File(activity.getExternalFilesDir(null), activity.getString(R.string.schoolsfile));
+			File file = getSchoolsFile(activity);
 			FileOutputStream fileOutputStream = new FileOutputStream(file);
 			BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
 			printWriter = new PrintWriter(bufferedOutputStream);

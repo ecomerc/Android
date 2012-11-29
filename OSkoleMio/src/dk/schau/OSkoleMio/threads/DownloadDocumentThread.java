@@ -13,6 +13,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.os.Message;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
+import dk.schau.OSkoleMio.SchoolsCollection;
 import dk.schau.OSkoleMio.handlers.DownloadDocumentHandler;
 import dk.schau.OSkoleMio.vos.Document;
 
@@ -122,6 +123,6 @@ public class DownloadDocumentThread extends Thread
 	
 	private File getFilePath(String file)
 	{
-		return new File(_downloadDocumentHandler.getParentActivity().getExternalFilesDir(null), file);
+		return new File(SchoolsCollection.getExternalFilesDir(_downloadDocumentHandler.getParentActivity()), file);
 	}
 }
