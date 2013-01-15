@@ -191,6 +191,10 @@
 		<url>https://www.blicherskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Blære skole</name>
+		<url>https://www.blaereskole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Blåbjerggårdskolen</name>
 		<url>https://www.blaabjerggaardskolen.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -831,6 +835,10 @@
 		<url>https://www.greve-privatskole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Gribskolen</name>
+		<url>https://www.gribskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Grindsted Søndre Skole</name>
 		<url>https://www.soendreskole-grindsted.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -1071,6 +1079,10 @@
 		<url>https://hillerod-lilleskole.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Hillerødsholmskolen</name>
+		<url>https://www.hillerodsholm.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Himmelev skole</name>
 		<url>https://si.himmelevskole.roskilde.dk/mobil/mobil_fi/Loginside.asp</url>
 	</school>
@@ -1179,6 +1191,10 @@
 		<url>https://www.hundestedskole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Hurup Skole</name>
+		<url>https://www.hurupskole.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Hvalsø Skole</name>
 		<url>https://www.hvalsoe-skole.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -1219,6 +1235,10 @@
 		<url>https://www.hvs.kk.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Høje Kolstrup Skole</name>
+		<url>https://www.hkolstrupskole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Højelse Skole</name>
 		<url>https://www.hoejelse-skole.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -1253,6 +1273,10 @@
 	<school>
 		<name>Høng Skole</name>
 		<url>https://www.hoeng-komskole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Hørby Efterskole</name>
+		<url>https://www.hu-ungdom.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Hørsholm Skole</name>
@@ -1347,6 +1371,10 @@
 		<url>https://www.kalfri.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Karensmindeskolen</name>
+		<url>https://www.karensmindeskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Karlslunde Skole</name>
 		<url>https://www.karlslundeskole.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -1439,6 +1467,14 @@
 		<url>https://www.koldingrealskole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Kollegievejens Skole</name>
+		<url>https://www.kollegievejensskole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Kolt Skole</name>
+		<url>https://www.kolt-skole.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Kongehoejskolen</name>
 		<url>https://www.kongehoejskolen.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -1489,6 +1525,10 @@
 	<school>
 		<name>Kvaglundskolen</name>
 		<url>https://www.kvaglundskolen.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Kærbyskolen</name>
+		<url>https://www.kaerbyskolen.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Kølkær Skole</name>
@@ -1743,12 +1783,20 @@
 		<url>https://www.munkekaer.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Munkevængets Skole</name>
+		<url>https://www.munkevaengets-skole.kolding.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Mølholm Skole</name>
 		<url>https://www.moelholm-skole.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Mølholm Skole Vejle</name>
 		<url>https://www.moelholm-skole.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Mølkærskolen</name>
+		<url>https://www.moelkaerskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Mølleholmskolen</name>
@@ -2267,6 +2315,10 @@
 		<url>https://www.sevel-skole.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Sigerslevøster Privatskole</name>
+		<url>https://www.sigerslev.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Sjælsøskolen</name>
 		<url>https://www.sjaelsoe.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -2431,10 +2483,6 @@
 		<url>https://www.skoedstrup-skole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
-		<name>Skødstrup Skole</name>
-		<url>https://www.skoedstrup-skole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
-	</school>
-	<school>
 		<name>Skørping Skole</name>
 		<url>https://www.skoerpingskole.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -2579,6 +2627,10 @@
 		<url>https://www.strandskolen-greve.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Strandvejsskolen Østerbro</name>
+		<url>https://www.strandvejsskolen.kk.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Strib Skole</name>
 		<url>https://www.stribskole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -2715,6 +2767,10 @@
 		<url>https://www.thiseskole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Thomasskolen</name>
+		<url>https://www.thomasskolen.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Thorning Skole</name>
 		<url>https://www.thorningskole.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -2793,6 +2849,14 @@
 	<school>
 		<name>Tranbjerg Skole</name>
 		<url>https://www.tranbjerg-skole.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Tre Ege Skolen, Kværndrup</name>
+		<url>https://www.kvaerndrup-skole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Tre Ege Skolen, Ryslinge</name>
+		<url>https://www.treegeskolen-ryslinge.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Trekronerskolen</name>
@@ -2975,6 +3039,10 @@
 		<url>https://www.vestermark-skolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
+		<name>Vestervang Skole</name>
+		<url>https://www.vestervangskole.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
 		<name>Vestervangskolen</name>
 		<url>https://www.vestervangskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
@@ -2989,6 +3057,10 @@
 	<school>
 		<name>Vestervig Skole</name>
 		<url>https://www.vestervig-skole.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Vestfjendsskolen</name>
+		<url>https://www.vestfjendsskolen.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Vestre Skole Grenå</name>
@@ -3073,6 +3145,10 @@
 	<school>
 		<name>Vittenbergskolen</name>
 		<url>https://www.vittenbergskolen.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
+	</school>
+	<school>
+		<name>Vivild Børneby</name>
+		<url>https://www.langhoj.skoleintra.dk/mobil/Mobil_FI/LoginSide.asp</url>
 	</school>
 	<school>
 		<name>Voel Skole</name>
